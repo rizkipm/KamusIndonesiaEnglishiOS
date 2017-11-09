@@ -10,16 +10,21 @@ import UIKit
 
 class KamusTableViewController: UITableViewController {
     
-    
+    //deklarasi url untuk mengambil data json
+    let kamusURL = "https://api.kivaws.org/v1/loans/newest.json"
+    //deklarasi variable loans untuk memanggil class Loan yang sudah dibuat sebelumnya
+    var kamusData = [KamusModel]()
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
+        // mengambil data dari API loans
+        getAllDataKamus()
+        
+        // Self sizing cells
+        //mengatur tinggi row table menjadi 92
+        tableView.estimatedRowHeight = 92.0
+        //mengatur tinggi row table menjadi dimensi otomatis
+        tableView.rowHeight = UITableViewAutomaticDimension
     }
 
     override func didReceiveMemoryWarning() {
@@ -31,23 +36,96 @@ class KamusTableViewController: UITableViewController {
 
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return 0
+        return 1
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 0
+        return kamusData.count
     }
 
-    /*
+    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cellKamus", for: indexPath) as! KamusCell
 
         // Configure the cell...
+        
+        cell.labelEnglish.text = kamusData[indexPath.row].kamus_english
+        cell.labelIndonesia.text = kamusData[indexPath.row].kamus_indonesia
+        
 
         return cell
     }
-    */
+    
+    
+    // MARK: - JSON Parsing
+    //membuat method baru dengan nama : getLatestLoans()
+    func getAllDataKamus() {
+        //deklarasi  loanUrl untuk memanggil variable kivaLoanURL yang telah d deklarasi sebelumnya
+        guard let loanUrl = URL(string: kamusURL) else {
+            return //return ini berfungsi untuk mengembalikan nilai yang sudah didapat ketika memanggil variable loanUrl
+        }
+        
+        //deklarasi request untuk request URL loanUrl
+        let request = URLRequest(url: loanUrl)
+        //deklarasi task untuk mengambil data dari variable request diatas
+        let task = URLSession.shared.dataTask(with: request, completionHandler: { (data, response, error) -> Void in
+            
+            //mengecek apakah ada error apa tidak
+            if let error = error {
+                //kondisi ketika ada error
+                //menctak error
+                print(error)
+                return//mengembalikan nilai error yang didapat
+            }
+            
+            // Parse JSON data
+            //deklarasi variable data untuk memanggil data
+            if let data = data {
+                //pada bagian ini akan memanggil method parseJsonData yang akan kita buat di bawah
+                self.kamusData = self.parseJsonData(data: data)
+                
+                // Reload table view
+                OperationQueue.main.addOperation({
+                    //reloadData kembali
+                    self.tableView.reloadData()
+                })
+            }
+        })
+        //task akan melakukan resume untuk memanggil data json nya
+        task.resume()
+    }
+    //membuat method baru dengan nama ParseJsonData
+    //method ini akan melakukan parsing data Json
+    func parseJsonData(data: Data) -> [KamusModel] {
+        //deklarasi variable loans sebagai objeck dari class Loan
+        var loans = [KamusModel]()
+        //akan melakukan perulangan terhadap data json yang di parsing
+        do {
+            //deklarasi jsonResult untuk mengambil data dari jsonnya
+            let jsonResult = try JSONSerialization.jsonObject(with: data, options: JSONSerialization.ReadingOptions.mutableContainers) as? NSDictionary
+            
+            // Parse JSON data
+            //deklarasi jsonLoans untuk memanggil data array jsonResult yang bernama Loans
+            let jsonLoans = jsonResult?["data"] as! [AnyObject]
+            //akan melakukan pemanggilan data berulang2 selama jsonLoan memiliki data json array dari variable jsonLoans
+            for jsonLoan in jsonLoans {
+                //deklarasi loan sebagai object dari class Loan
+                let loan = KamusModel()
+                //memasukkan nilai ke dalam masing2 object dari class Loan
+                //memasukkan nilai jsonLoan dengan nama object name sbg String
+                loan.kamus_indonesia = jsonLoan["kamus_indonesia"] as! String
+                //memasukkan nilai jsonLoan dengan nama object loan_amount sbg Integer
+                loan.kamus_english = jsonLoan["kamus_inggris"] as! String
+                kamusData.append(loan)
+            }
+            
+        } catch {
+            print(error)
+        }
+        
+        return kamusData
+    }
 
     /*
     // Override to support conditional editing of the table view.
