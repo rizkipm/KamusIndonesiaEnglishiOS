@@ -11,7 +11,7 @@ import UIKit
 class KamusTableViewController: UITableViewController {
     
     //deklarasi url untuk mengambil data json
-    let kamusURL = "https://api.kivaws.org/v1/loans/newest.json"
+    let kamusURL = "http://localhost/KamusApp/index.php/api/getAllKamus"
     //deklarasi variable loans untuk memanggil class Loan yang sudah dibuat sebelumnya
     var kamusData = [KamusModel]()
 
