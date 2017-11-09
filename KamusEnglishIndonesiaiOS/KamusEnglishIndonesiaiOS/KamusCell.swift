@@ -9,7 +9,9 @@
 import UIKit
 
 class KamusCell: UITableViewCell {
-
+    @IBOutlet weak var labelIndonesia: UILabel!
+    
+    @IBOutlet weak var labelEnglish: UILabel!
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

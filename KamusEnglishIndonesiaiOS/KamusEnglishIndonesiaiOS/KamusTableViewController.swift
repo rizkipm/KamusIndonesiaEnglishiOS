@@ -9,6 +9,8 @@
 import UIKit
 
 class KamusTableViewController: UITableViewController {
+    
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
