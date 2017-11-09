@@ -5,6 +5,7 @@
     </device>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13174"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -24,21 +25,35 @@
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="53.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="English" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Dd8-Pd-Sz8">
-                                            <rect key="frame" x="14" y="8" width="147" height="21"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="English" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Dd8-Pd-Sz8">
+                                            <rect key="frame" x="14" y="8" width="249.5" height="21"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="21" id="eCb-06-qoG"/>
+                                            </constraints>
                                             <fontDescription key="fontDescription" type="boldSystem" pointSize="19"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Indonesia" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NEq-9V-PnV">
-                                            <rect key="frame" x="270" y="8" width="97" height="21"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Indonesia" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NEq-9V-PnV">
+                                            <rect key="frame" x="308.5" y="8" width="58.5" height="21"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="21" id="Ba3-h9-ZBJ"/>
+                                            </constraints>
                                             <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
+                                    <constraints>
+                                        <constraint firstItem="Dd8-Pd-Sz8" firstAttribute="leading" secondItem="2qi-Yn-so8" secondAttribute="leadingMargin" constant="6" id="5Ko-1q-qCE"/>
+                                        <constraint firstItem="Dd8-Pd-Sz8" firstAttribute="top" secondItem="2qi-Yn-so8" secondAttribute="topMargin" id="KMv-IB-DkZ"/>
+                                        <constraint firstAttribute="bottomMargin" secondItem="NEq-9V-PnV" secondAttribute="bottom" constant="16.5" id="KmI-F3-Tde"/>
+                                        <constraint firstItem="NEq-9V-PnV" firstAttribute="leading" secondItem="Dd8-Pd-Sz8" secondAttribute="trailing" constant="45" id="WbX-AJ-iMW"/>
+                                        <constraint firstItem="NEq-9V-PnV" firstAttribute="trailing" secondItem="2qi-Yn-so8" secondAttribute="trailingMargin" id="X4V-S2-bq2"/>
+                                        <constraint firstItem="NEq-9V-PnV" firstAttribute="top" secondItem="2qi-Yn-so8" secondAttribute="topMargin" id="mT8-Sf-JgU"/>
+                                        <constraint firstItem="NEq-9V-PnV" firstAttribute="leading" secondItem="Dd8-Pd-Sz8" secondAttribute="trailing" constant="45" id="qXr-IP-d4P"/>
+                                        <constraint firstAttribute="bottomMargin" secondItem="Dd8-Pd-Sz8" secondAttribute="bottom" constant="16.5" id="vvR-JC-HQO"/>
+                                    </constraints>
                                 </tableViewCellContentView>
                                 <connections>
                                     <outlet property="labelEnglish" destination="Dd8-Pd-Sz8" id="QFh-lQ-mX5"/>
@@ -58,7 +73,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FaI-97-opR" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1538" y="138"/>
+            <point key="canvasLocation" x="1536.8" y="137.18140929535232"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="i09-69-3a9">
