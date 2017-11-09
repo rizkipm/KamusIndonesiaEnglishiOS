@@ -69,17 +69,21 @@
                     </tableView>
                     <navigationItem key="navigationItem" title="Kamus Englis Indonesia" id="Mou-sF-oYo">
                         <barButtonItem key="backBarButtonItem" title="Back" id="wAH-lU-Oee"/>
-                        <barButtonItem key="rightBarButtonItem" style="done" systemItem="add" id="4xK-O5-xti"/>
+                        <barButtonItem key="rightBarButtonItem" style="done" systemItem="add" id="4xK-O5-xti">
+                            <connections>
+                                <segue destination="s1N-gv-2jM" kind="modal" id="qy8-SM-i7Q"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FaI-97-opR" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1536.8" y="137.18140929535232"/>
         </scene>
-        <!--View Controller-->
+        <!--Tambah Data View Controller-->
         <scene sceneID="CrP-91-WVl">
             <objects>
-                <viewController id="s1N-gv-2jM" sceneMemberID="viewController">
+                <viewController id="s1N-gv-2jM" customClass="TambahDataViewController" customModule="KamusEnglishIndonesiaiOS" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="9zf-D4-UDu">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -91,7 +95,11 @@
                                 <items>
                                     <navigationItem title="Tambah Data Kamus" id="oQc-WF-9Lf">
                                         <barButtonItem key="leftBarButtonItem" title="Item" image="previous" id="OQH-XZ-1oJ"/>
-                                        <barButtonItem key="rightBarButtonItem" title="Item" image="save" id="WWe-5k-ZEr"/>
+                                        <barButtonItem key="rightBarButtonItem" title="Item" image="save" id="WWe-5k-ZEr">
+                                            <connections>
+                                                <action selector="btnSaveData:" destination="s1N-gv-2jM" id="dRI-2k-h2S"/>
+                                            </connections>
+                                        </barButtonItem>
                                     </navigationItem>
                                 </items>
                             </navigationBar>
@@ -127,6 +135,10 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <viewLayoutGuide key="safeArea" id="buJ-NR-3wp"/>
                     </view>
+                    <connections>
+                        <outlet property="etTeksEnglish" destination="q7N-TE-Dqz" id="sXX-HX-c41"/>
+                        <outlet property="etTeksIndonesia" destination="yPJ-j1-MCv" id="ADa-kD-Kfm"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="O5G-gy-j4q" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

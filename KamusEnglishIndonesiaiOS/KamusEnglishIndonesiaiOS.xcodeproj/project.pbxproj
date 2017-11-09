@@ -17,6 +17,7 @@
 		9A320C2F1FB402E400FC1125 /* KamusTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A320C2E1FB402E400FC1125 /* KamusTableViewController.swift */; };
 		9A320C311FB402F200FC1125 /* KamusCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A320C301FB402F200FC1125 /* KamusCell.swift */; };
 		9A320C331FB403A700FC1125 /* KamusModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A320C321FB403A700FC1125 /* KamusModel.swift */; };
+		9A320C351FB4523600FC1125 /* TambahDataViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A320C341FB4523600FC1125 /* TambahDataViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +54,7 @@
 		9A320C2E1FB402E400FC1125 /* KamusTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KamusTableViewController.swift; sourceTree = "<group>"; };
 		9A320C301FB402F200FC1125 /* KamusCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KamusCell.swift; sourceTree = "<group>"; };
 		9A320C321FB403A700FC1125 /* KamusModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KamusModel.swift; sourceTree = "<group>"; };
+		9A320C341FB4523600FC1125 /* TambahDataViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TambahDataViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -112,6 +114,7 @@
 				9A320C2E1FB402E400FC1125 /* KamusTableViewController.swift */,
 				9A320C301FB402F200FC1125 /* KamusCell.swift */,
 				9A320C321FB403A700FC1125 /* KamusModel.swift */,
+				9A320C341FB4523600FC1125 /* TambahDataViewController.swift */,
 			);
 			path = KamusEnglishIndonesiaiOS;
 			sourceTree = "<group>";
@@ -269,6 +272,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9A320C031FB4017900FC1125 /* ViewController.swift in Sources */,
+				9A320C351FB4523600FC1125 /* TambahDataViewController.swift in Sources */,
 				9A320C2F1FB402E400FC1125 /* KamusTableViewController.swift in Sources */,
 				9A320C011FB4017900FC1125 /* AppDelegate.swift in Sources */,
 				9A320C331FB403A700FC1125 /* KamusModel.swift in Sources */,
