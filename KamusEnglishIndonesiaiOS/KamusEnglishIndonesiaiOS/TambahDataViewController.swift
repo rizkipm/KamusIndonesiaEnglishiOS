@@ -83,7 +83,7 @@ class TambahDataViewController: UIViewController {
                 
                 let jsonData : NSDictionary =  try JSONSerialization.jsonObject(with: urlData!, options: JSONSerialization.ReadingOptions.mutableContainers) as! NSDictionary
                 
-                let result: NSInteger = jsonData.value(forKey: "true") as! NSInteger
+                let result: NSInteger = jsonData.value(forKey: "result") as! NSInteger
                 
                 if (result == 1){
                     self.dismiss(animated: true, completion: nil)
