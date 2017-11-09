@@ -12,15 +12,15 @@ class TambahDataViewController: UIViewController {
     
     //load url
     let urlInputData :URL = URL(string: "http://localhost/KamusApp/index.php/api/input_data_kamus")!
-
+    
     @IBOutlet weak var etTeksIndonesia: UITextField!
     @IBOutlet weak var etTeksEnglish: UITextField!
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         // Do any additional setup after loading the view.
     }
-
+    
     @IBAction func btnSaveData(_ sender: Any) {
         //deklarasi variable nTeksEnglish and nTeksIndo
         let nTeksEnglish:NSString = etTeksEnglish.text! as NSString
@@ -37,7 +37,7 @@ class TambahDataViewController: UIViewController {
             alertView.show()
             
         }else{
-           //kondisi ketika nilai tidak kosong
+            //kondisi ketika nilai tidak kosong
             //deklarasi parameter untuk post data
             let post: NSString = "kamus_indonesia=\(nTeksIndonesia)&kamus_inggris=\(nTeksEnglish)" as NSString
             //log data
@@ -80,7 +80,7 @@ class TambahDataViewController: UIViewController {
                 
                 NSLog("Response ==> %@", responseData)
                 
-                let jsonData : NSDictionary = try JSONSerialization.jsonObject(with: urlData!, options: JSONSerialization.ReadingOptions.mutableContainers) as! NSDictionary
+                let jsonData : NSDictionary =  try JSONSerialization.jsonObject(with: urlData!, options: JSONSerialization.ReadingOptions.mutableContainers) as! NSDictionary
                 
                 let result: NSInteger = jsonData.value(forKey: "true") as! NSInteger
                 
@@ -93,7 +93,7 @@ class TambahDataViewController: UIViewController {
                         error_msg = jsonData["error_message"] as! NSString
                     }else{
                         error_msg = "Uknown Error"
-                    
+                        
                     }
                     
                     let alertView:UIAlertView = UIAlertView()
@@ -108,28 +108,39 @@ class TambahDataViewController: UIViewController {
             }else{
                 let alertView:UIAlertView = UIAlertView()
                 alertView.title = "Input Data Failed"
-                alertView.message = "Connection Failed"
+                alertView.message = error_msg as String
+                alertView.delegate = self
+                alertView.addButton(withTitle: "OK")
+                alertView.show()
+            }
+            
+            }catch{
+                let alertView:UIAlertView = UIAlertView()
+                alertView.title = "Input Data Failed"
+                alertView.message = error_msg as String
                 alertView.delegate = self
                 alertView.addButton(withTitle: "OK")
                 alertView.show()
             }
         }
-        
-    }
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
+                
+                
+            
+            override func didReceiveMemoryWarning() {
+                super.didReceiveMemoryWarning()
+                // Dispose of any resources that can be recreated.
+            }
+            
+            
+            /*
+             // MARK: - Navigation
+             
+             // In a storyboard-based application, you will often want to do a little preparation before navigation
+             override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+             // Get the new view controller using segue.destinationViewController.
+             // Pass the selected object to the new view controller.
+             }
+             */
+            
 }
