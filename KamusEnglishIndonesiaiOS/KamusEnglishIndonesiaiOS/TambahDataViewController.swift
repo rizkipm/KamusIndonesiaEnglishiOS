@@ -37,6 +37,7 @@ class TambahDataViewController: UIViewController {
             alertView.show()
             
         }else{
+            do {
             //kondisi ketika nilai tidak kosong
             //deklarasi parameter untuk post data
             let post: NSString = "kamus_indonesia=\(nTeksIndonesia)&kamus_inggris=\(nTeksEnglish)" as NSString
@@ -108,7 +109,7 @@ class TambahDataViewController: UIViewController {
             }else{
                 let alertView:UIAlertView = UIAlertView()
                 alertView.title = "Input Data Failed"
-                alertView.message = error_msg as String
+                alertView.message = "Error Server"
                 alertView.delegate = self
                 alertView.addButton(withTitle: "OK")
                 alertView.show()
@@ -117,12 +118,13 @@ class TambahDataViewController: UIViewController {
             }catch{
                 let alertView:UIAlertView = UIAlertView()
                 alertView.title = "Input Data Failed"
-                alertView.message = error_msg as String
+                alertView.message = "Can not connect"
                 alertView.delegate = self
                 alertView.addButton(withTitle: "OK")
                 alertView.show()
             }
         }
+    }
     
                 
                 
