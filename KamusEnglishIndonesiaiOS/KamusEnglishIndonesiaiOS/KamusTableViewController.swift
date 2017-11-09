@@ -126,6 +126,27 @@ class KamusTableViewController: UITableViewController {
         
         return kamusData
     }
+    
+//    lazy var refreshControl: UIRefreshControl = {
+//        let refreshControl = UIRefreshControl()
+//        refreshControl.addTarget(self, action:
+//            #selector(KamusTableViewController.handleRefresh(_:)),
+//                                 for: UIControlEvents.valueChanged)
+//        refreshControl.tintColor = UIColor.red
+//
+//        return refreshControl
+//    }()
+//
+//    @objc func handleRefresh(_ refreshControl: UIRefreshControl) {
+//
+//        let newHotel = [KamusModel]()
+//        kamusData.append(newHotel)
+//
+//        kamusData.sort() {,<#arg#>  $0.name < $0.place }
+//
+//        self.tableView.reloadData()
+//        refreshControl.endRefreshing()
+//    }
 
     /*
     // Override to support conditional editing of the table view.
